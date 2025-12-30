@@ -29,6 +29,7 @@ class ElementXApplication : Application(), DependencyInjectionGraphOwner, Config
 
     override fun onCreate() {
         super.onCreate()
+
         AppInitializer.getInstance(this).apply {
             initializeComponent(CrashInitializer::class.java)
             initializeComponent(PlatformInitializer::class.java)

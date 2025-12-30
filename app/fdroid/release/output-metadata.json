@@ -1,0 +1,97 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "io.element.android.x",
+  "variantName": "fdroidRelease",
+  "elements": [
+    {
+      "type": "UNIVERSAL",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 202512000,
+      "versionName": "25.12.0",
+      "outputFile": "app-fdroid-universal-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "x86_64"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 202512004,
+      "versionName": "25.12.0",
+      "outputFile": "app-fdroid-x86_64-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "armeabi-v7a"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 202512001,
+      "versionName": "25.12.0",
+      "outputFile": "app-fdroid-armeabi-v7a-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "x86"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 202512003,
+      "versionName": "25.12.0",
+      "outputFile": "app-fdroid-x86-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "arm64-v8a"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 202512002,
+      "versionName": "25.12.0",
+      "outputFile": "app-fdroid-arm64-v8a-release.apk"
+    }
+  ],
+  "elementType": "File",
+  "baselineProfiles": [
+    {
+      "minApi": 28,
+      "maxApi": 30,
+      "baselineProfiles": [
+        "baselineProfiles/1/app-fdroid-universal-release.dm",
+        "baselineProfiles/1/app-fdroid-x86_64-release.dm",
+        "baselineProfiles/1/app-fdroid-armeabi-v7a-release.dm",
+        "baselineProfiles/1/app-fdroid-x86-release.dm",
+        "baselineProfiles/1/app-fdroid-arm64-v8a-release.dm"
+      ]
+    },
+    {
+      "minApi": 31,
+      "maxApi": 2147483647,
+      "baselineProfiles": [
+        "baselineProfiles/0/app-fdroid-universal-release.dm",
+        "baselineProfiles/0/app-fdroid-x86_64-release.dm",
+        "baselineProfiles/0/app-fdroid-armeabi-v7a-release.dm",
+        "baselineProfiles/0/app-fdroid-x86-release.dm",
+        "baselineProfiles/0/app-fdroid-arm64-v8a-release.dm"
+      ]
+    }
+  ],
+  "minSdkVersionForDexing": 24
+}
