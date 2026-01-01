@@ -95,6 +95,7 @@ class RootFlowNode(
 ) : BaseFlowNode<RootFlowNode.NavTarget>(
     backstack = BackStack(
         initialElement = NavTarget.SplashScreen,
+//        initialElement = NavTarget.NotLoggedInFlow(null),
         savedStateMap = buildContext.savedStateMap,
     ),
     buildContext = buildContext,

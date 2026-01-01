@@ -8,6 +8,7 @@
 
 package io.element.android.features.login.impl.screens.loginpassword
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.collectAsState
@@ -24,6 +25,7 @@ import io.element.android.libraries.matrix.api.auth.MatrixAuthenticationService
 import io.element.android.libraries.matrix.api.core.SessionId
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 @Inject
 class LoginPasswordPresenter(
@@ -67,13 +69,25 @@ class LoginPasswordPresenter(
 
     private fun CoroutineScope.submit(formState: LoginFormState, loggedInState: MutableState<AsyncData<SessionId>>) = launch {
         loggedInState.value = AsyncData.Loading()
-        authenticationService.login(formState.login.trim(), formState.password)
-            .onSuccess { sessionId ->
-                loggedInState.value = AsyncData.Success(sessionId)
-            }
-            .onFailure { failure ->
+//        authenticationService.setHomeserver("https://matrix.org")
+        authenticationService.setHomeserver(accountProviderDataSource.flow.value.url).fold(
+            onSuccess = {
+                println("success")
+                Log.d("ops", "success")
+                authenticationService.login(formState.login.trim(), formState.password)
+                    .onSuccess { sessionId ->
+                        loggedInState.value = AsyncData.Success(sessionId)
+                    }
+                    .onFailure { failure ->
+                        loggedInState.value = AsyncData.Failure(failure)
+                    }
+            },
+            onFailure = { failure ->
+                println("failed")
+                Log.d("ops", "failed")
                 loggedInState.value = AsyncData.Failure(failure)
             }
+        )
     }
 
     private fun updateFormState(formState: MutableState<LoginFormState>, updateLambda: LoginFormState.() -> LoginFormState) {

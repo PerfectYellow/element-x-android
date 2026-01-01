@@ -11,15 +11,20 @@ package io.element.android.features.login.impl
 import android.app.Activity
 import android.os.Parcelable
 import androidx.activity.compose.LocalActivity
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.lifecycleScope
 import com.bumble.appyx.core.lifecycle.subscribe
 import com.bumble.appyx.core.modality.BuildContext
 import com.bumble.appyx.core.node.Node
+import com.bumble.appyx.core.node.node
 import com.bumble.appyx.core.plugin.Plugin
 import com.bumble.appyx.navmodel.backstack.BackStack
+import com.bumble.appyx.navmodel.backstack.operation.newRoot
 import com.bumble.appyx.navmodel.backstack.operation.push
 import com.bumble.appyx.navmodel.backstack.operation.singleTop
 import dev.zacsweers.metro.AppScope
@@ -28,6 +33,7 @@ import dev.zacsweers.metro.AssistedInject
 import io.element.android.annotations.ContributesNode
 import io.element.android.compound.theme.ElementTheme
 import io.element.android.features.login.api.LoginEntryPoint
+import io.element.android.features.login.impl.accountprovider.AccountProvider
 import io.element.android.features.login.impl.accountprovider.AccountProviderDataSource
 import io.element.android.features.login.impl.qrcode.QrCodeLoginFlowNode
 import io.element.android.features.login.impl.screens.changeaccountprovider.ChangeAccountProviderNode
@@ -44,6 +50,7 @@ import io.element.android.libraries.architecture.NodeInputs
 import io.element.android.libraries.architecture.callback
 import io.element.android.libraries.architecture.createNode
 import io.element.android.libraries.architecture.inputs
+import io.element.android.libraries.designsystem.theme.components.CircularProgressIndicator
 import io.element.android.libraries.di.annotations.AppCoroutineScope
 import io.element.android.libraries.matrix.api.auth.OidcDetails
 import io.element.android.libraries.oidc.api.OidcAction
@@ -64,7 +71,7 @@ class LoginFlowNode(
     private val appCoroutineScope: CoroutineScope,
 ) : BaseFlowNode<LoginFlowNode.NavTarget>(
     backstack = BackStack(
-        initialElement = NavTarget.OnBoarding,
+        initialElement = NavTarget.Initialising,
         savedStateMap = buildContext.savedStateMap,
     ),
     buildContext = buildContext,
@@ -83,6 +90,17 @@ class LoginFlowNode(
 
     override fun onBuilt() {
         super.onBuilt()
+        appCoroutineScope.launch {
+            accountProviderDataSource.setAccountProvider(
+                AccountProvider(
+                    url = "https://matrix.org",
+//                    url = "http://10.0.2.2:8008",
+                    isMatrixOrg = true,
+                    isPublic = true,
+                )
+            )
+            backstack.newRoot(NavTarget.LoginPassword)
+        }
         lifecycle.subscribe(
             onResume = {
                 if (externalAppStarted) {
@@ -101,6 +119,9 @@ class LoginFlowNode(
     }
 
     sealed interface NavTarget : Parcelable {
+        @Parcelize
+        data object Initialising : NavTarget
+
         @Parcelize
         data object OnBoarding : NavTarget
 
@@ -130,6 +151,13 @@ class LoginFlowNode(
 
     override fun resolve(navTarget: NavTarget, buildContext: BuildContext): Node {
         return when (navTarget) {
+            NavTarget.Initialising -> {
+                node(buildContext) { modifier ->
+                    Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        CircularProgressIndicator()
+                    }
+                }
+            }
             NavTarget.OnBoarding -> {
                 val callback = object : OnBoardingNode.Callback {
                     override fun navigateToSignUpFlow() {
@@ -241,11 +269,7 @@ class LoginFlowNode(
             NavTarget.SearchAccountProvider -> {
                 val callback = object : SearchAccountProviderNode.Callback {
                     override fun onDone() {
-                        // Go back to the Account Provider screen
-                        val confirmAccountProvider = backstack.elements.value.firstOrNull {
-                            it.key.navTarget is NavTarget.ConfirmAccountProvider
-                        }?.key?.navTarget ?: NavTarget.ConfirmAccountProvider(isAccountCreation = false)
-                        backstack.singleTop(confirmAccountProvider)
+                        backstack.push(NavTarget.LoginPassword)
                     }
                 }
 
@@ -253,6 +277,12 @@ class LoginFlowNode(
             }
             NavTarget.LoginPassword -> {
                 createNode<LoginPasswordNode>(buildContext)
+//                val loginPasswordCallback = object : LoginPasswordNode.Callback {
+//                    override fun onBackClick() {
+//                        callback.onDone()
+//                    }
+//                }
+//                createNode<LoginPasswordNode>(buildContext, plugins = listOf(loginPasswordCallback))
             }
             is NavTarget.CreateAccount -> {
                 val inputs = CreateAccountNode.Inputs(

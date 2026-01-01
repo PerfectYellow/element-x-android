@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -35,6 +36,8 @@ import androidx.compose.ui.unit.sp
 import io.element.android.compound.theme.ElementTheme
 import io.element.android.compound.tokens.generated.CompoundIcons
 import io.element.android.features.login.impl.R
+import io.element.android.features.login.impl.accountprovider.AccountProviderView
+import io.element.android.features.login.impl.changeserver.ChangeServerEvents
 import io.element.android.features.login.impl.login.LoginModeView
 import io.element.android.libraries.architecture.AsyncData
 import io.element.android.libraries.designsystem.atomic.atoms.ElementLogoAtom
@@ -47,6 +50,7 @@ import io.element.android.libraries.designsystem.components.form.textFieldState
 import io.element.android.libraries.designsystem.preview.ElementPreview
 import io.element.android.libraries.designsystem.preview.PreviewsDayNight
 import io.element.android.libraries.designsystem.theme.components.Button
+import io.element.android.libraries.designsystem.theme.components.CircularProgressIndicator
 import io.element.android.libraries.designsystem.theme.components.IconSource
 import io.element.android.libraries.designsystem.theme.components.Text
 import io.element.android.libraries.designsystem.theme.components.TextButton
@@ -239,7 +243,7 @@ private fun OnBoardingButtons(
     }
 
     ButtonColumnMolecule {
-        /*
+
         val signInButtonStringRes = if (state.canLoginWithQrCode || state.canCreateAccount) {
             R.string.screen_onboarding_sign_in_manually
         } else {
@@ -253,22 +257,7 @@ private fun OnBoardingButtons(
                 modifier = Modifier.fillMaxWidth()
             )
         }
-        */
-        TextField(value = "", onValueChange = {}, label = "نام کاربری")
 
-        TextField(value = "", onValueChange = {}, label = "رمز عبور")
-
-        Button(
-            text = "ورود",
-            onClick = {
-                print("hi")
-                onSignIn(state.mustChooseAccountProvider)
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .testTag(TestTags.onBoardingSignIn)
-        )
-        /*
         val defaultAccountProvider = state.defaultAccountProvider
         if (defaultAccountProvider == null) {
             Button(
@@ -300,18 +289,18 @@ private fun OnBoardingButtons(
                     .fillMaxWidth()
             )
         }
-        */
+
         if (state.isAddingAccount.not()) {
             if (state.canReportBug) {
                 // Add a report problem text button. Use a Text since we need a special theme here.
-//                Text(
-//                    modifier = Modifier
-//                        .clickable(onClick = onReportProblem)
-//                        .padding(16.dp),
-//                    text = stringResource(id = CommonStrings.common_report_a_problem),
-//                    style = ElementTheme.typography.fontBodySmRegular,
-//                    color = ElementTheme.colors.textSecondary,
-//                )
+                Text(
+                    modifier = Modifier
+                        .clickable(onClick = onReportProblem)
+                        .padding(16.dp),
+                    text = stringResource(id = CommonStrings.common_report_a_problem),
+                    style = ElementTheme.typography.fontBodySmRegular,
+                    color = ElementTheme.colors.textSecondary,
+                )
             } else {
                 Text(
                     modifier = Modifier
@@ -327,16 +316,6 @@ private fun OnBoardingButtons(
         }
     }
 }
-//@Composable
-//private fun UsernameInput() {
-//    var username by remember { mutableStateOf("") }
-//
-//    TextField(
-//        value = username,
-//        onValueChange = { newValue: String -> username = newValue},
-//        label = { Text("Enter Your Username") },
-//    )
-//}
 
 @PreviewsDayNight
 @Composable

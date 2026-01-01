@@ -30,6 +30,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.BiasAlignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.autofill.ContentType
 import androidx.compose.ui.focus.FocusDirection
@@ -49,6 +50,8 @@ import io.element.android.compound.tokens.generated.CompoundIcons
 import io.element.android.features.login.impl.R
 import io.element.android.features.login.impl.error.loginError
 import io.element.android.libraries.architecture.AsyncData
+import io.element.android.libraries.designsystem.atomic.atoms.ElementLogoAtom
+import io.element.android.libraries.designsystem.atomic.atoms.ElementLogoAtomSize
 import io.element.android.libraries.designsystem.atomic.molecules.ButtonColumnMolecule
 import io.element.android.libraries.designsystem.atomic.molecules.IconTitleSubtitleMolecule
 import io.element.android.libraries.designsystem.components.BigIcon
@@ -99,17 +102,17 @@ fun LoginPasswordView(
 
     Scaffold(
         modifier = modifier,
-        topBar = {
-            TopAppBar(
-                title = {},
-                navigationIcon = {
-                    BackButton(onClick = {
-                        autofillManager?.cancel()
-                        onBackClick()
-                    })
-                },
-            )
-        }
+//        topBar = {
+//            TopAppBar(
+//                title = {},
+//                navigationIcon = {
+//                    BackButton(onClick = {
+//                        autofillManager?.cancel()
+//                        onBackClick()
+//                    })
+//                },
+//            )
+//        }
     ) { padding ->
         val scrollState = rememberScrollState()
 
@@ -122,15 +125,30 @@ fun LoginPasswordView(
                 .verticalScroll(state = scrollState)
                 .padding(start = 20.dp, end = 20.dp, bottom = 20.dp),
         ) {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = BiasAlignment(
+                    horizontalBias = 0f,
+                    verticalBias = -0.4f
+                )
+            ) {
+                ElementLogoAtom(
+                    size = ElementLogoAtomSize.Large,
+                    modifier = Modifier.padding(top = ElementLogoAtomSize.Large.shadowRadius / 2)
+                )
+            }
             // Title
             IconTitleSubtitleMolecule(
                 modifier = Modifier.padding(top = 20.dp, start = 16.dp, end = 16.dp),
-                iconStyle = BigIcon.Style.Default(CompoundIcons.UserProfileSolid()),
-                title = stringResource(
-                    id = R.string.screen_account_provider_signin_title,
-                    state.accountProvider.title
-                ),
-                subTitle = stringResource(id = R.string.screen_login_subtitle)
+//                iconStyle = BigIcon.Style.Default(CompoundIcons.UserProfileSolid()),
+                iconStyle = null,
+                title = "در المنتتان باشید",
+//                title = stringResource(
+//                    id = R.string.screen_account_provider_signin_title,
+//                    state.accountProvider.title
+//                ),
+//                subTitle = stringResource(id = R.string.screen_login_subtitle)
+                subTitle = " به سریع ترین المنت خوش آمدید\n باز طراحی شده برای سرعت و سادگی "
             )
             Spacer(Modifier.height(40.dp))
             LoginForm(
@@ -149,7 +167,8 @@ fun LoginPasswordView(
             ) {
                 ButtonColumnMolecule {
                     Button(
-                        text = stringResource(CommonStrings.action_continue),
+//                        text = stringResource(CommonStrings.action_continue),
+                        text = "ورود",
                         showProgress = isLoading,
                         onClick = ::submit,
                         enabled = state.submitEnabled || isLoading,
@@ -184,7 +203,8 @@ private fun LoginForm(
 
     Column {
         TextField(
-            label = stringResource(R.string.screen_login_form_header),
+//            label = stringResource(R.string.screen_login_form_header),
+            label = "لطفا اطلاعات خود را وارد کنید",
             value = loginFieldState,
             enabled = !isLoading,
             modifier = Modifier
@@ -194,7 +214,8 @@ private fun LoginForm(
                 .semantics {
                     contentType = ContentType.Username
                 },
-            placeholder = stringResource(CommonStrings.common_username),
+//            placeholder = stringResource(CommonStrings.common_username),
+            placeholder = "نام کاربری",
             onValueChange = {
                 val sanitized = it.sanitize()
                 loginFieldState = sanitized
@@ -246,7 +267,8 @@ private fun LoginForm(
                 passwordFieldState = sanitized
                 eventSink(LoginPasswordEvents.SetPassword(sanitized))
             },
-            placeholder = stringResource(CommonStrings.common_password),
+//            placeholder = stringResource(CommonStrings.common_password),
+            placeholder = "رمز عبور",
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation(),
             trailingIcon = {
                 val image =
