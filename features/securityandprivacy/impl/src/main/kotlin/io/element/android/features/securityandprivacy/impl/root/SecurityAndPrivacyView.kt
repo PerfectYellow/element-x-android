@@ -105,7 +105,7 @@ fun SecurityAndPrivacyView(
                     },
                 )
             }
-            if (state.showEncryptionSection) {
+            if (false/*state.showEncryptionSection*/) {
                 EncryptionSection(
                     isRoomEncrypted = state.editedSettings.isEncrypted,
                     // encryption can't be disabled once enabled

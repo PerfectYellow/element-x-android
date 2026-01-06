@@ -177,7 +177,7 @@ class ConfigureRoomPresenter(
                 CreateRoomParameters(
                     name = config.roomName,
                     topic = config.topic,
-                    isEncrypted = config.roomVisibility is RoomVisibilityState.Private,
+                    isEncrypted = false, //config.roomVisibility is RoomVisibilityState.Private,
                     isDirect = false,
                     visibility = RoomVisibility.Private,
                     historyVisibilityOverride = RoomHistoryVisibility.Invited,

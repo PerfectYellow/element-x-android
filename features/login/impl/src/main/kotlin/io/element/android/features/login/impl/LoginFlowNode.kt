@@ -93,9 +93,9 @@ class LoginFlowNode(
         appCoroutineScope.launch {
             accountProviderDataSource.setAccountProvider(
                 AccountProvider(
-                    url = "https://matrix.org",
-//                    url = "http://10.0.2.2:8008",
-                    isMatrixOrg = true,
+//                    url = "https://matrix.org",
+                    url = "http://10.0.2.2:8008",
+                    isMatrixOrg = false,
                     isPublic = true,
                 )
             )

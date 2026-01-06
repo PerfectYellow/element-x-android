@@ -356,7 +356,7 @@ class RustMatrixClient(
             val rustParams = RustCreateRoomParameters(
                 name = createRoomParams.name,
                 topic = createRoomParams.topic,
-                isEncrypted = createRoomParams.isEncrypted,
+                isEncrypted = false,//createRoomParams.isEncrypted,
                 isDirect = createRoomParams.isDirect,
                 visibility = createRoomParams.visibility.map(),
                 preset = when (createRoomParams.preset) {
@@ -392,7 +392,7 @@ class RustMatrixClient(
     override suspend fun createDM(userId: UserId): Result<RoomId> {
         val createRoomParams = CreateRoomParameters(
             name = null,
-            isEncrypted = true,
+            isEncrypted = false,
             isDirect = true,
             visibility = RoomVisibility.Private,
             preset = RoomPreset.TRUSTED_PRIVATE_CHAT,
