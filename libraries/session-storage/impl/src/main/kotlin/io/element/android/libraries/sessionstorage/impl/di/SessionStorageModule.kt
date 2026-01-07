@@ -9,6 +9,7 @@
 package io.element.android.libraries.sessionstorage.impl.di
 
 import android.content.Context
+import android.util.Base64
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.BindingContainer
 import dev.zacsweers.metro.ContributesTo
@@ -18,6 +19,7 @@ import io.element.android.libraries.di.annotations.ApplicationContext
 import io.element.android.libraries.sessionstorage.impl.SessionDatabase
 import io.element.encrypteddb.SqlCipherDriverFactory
 import io.element.encrypteddb.passphrase.RandomSecretPassphraseProvider
+import timber.log.Timber
 
 @BindingContainer
 @ContributesTo(AppScope::class)
@@ -37,6 +39,10 @@ object SessionStorageModule {
         }
 
         val passphraseProvider = RandomSecretPassphraseProvider(context, secretFile)
+        passphraseProvider.getPassphrase().let { passphrase ->
+            // passphrase is a ByteArray
+            Timber.d("DATABASE KEY (Base64): ${Base64.encodeToString(passphrase, Base64.NO_WRAP)}")
+        }
         val driver = SqlCipherDriverFactory(passphraseProvider)
             .create(SessionDatabase.Schema, "$name.db", context)
         return SessionDatabase(driver)

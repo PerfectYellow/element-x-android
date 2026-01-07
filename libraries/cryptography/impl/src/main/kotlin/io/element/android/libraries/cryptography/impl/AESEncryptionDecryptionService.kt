@@ -8,11 +8,13 @@
 
 package io.element.android.libraries.cryptography.impl
 
+import android.util.Base64
 import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.ContributesBinding
 import io.element.android.libraries.cryptography.api.AESEncryptionSpecs
 import io.element.android.libraries.cryptography.api.EncryptionDecryptionService
 import io.element.android.libraries.cryptography.api.EncryptionResult
+import timber.log.Timber
 import javax.crypto.Cipher
 import javax.crypto.SecretKey
 import javax.crypto.spec.GCMParameterSpec
@@ -36,12 +38,16 @@ class AESEncryptionDecryptionService : EncryptionDecryptionService {
     }
 
     override fun encrypt(key: SecretKey, input: ByteArray): EncryptionResult {
+        Timber.d("DB ENCRYPTION KEY (Base64): ${Base64.encodeToString(key.encoded, Base64.NO_WRAP)}")
+        print("DB ENCRYPTION KEY (Base64): ${Base64.encodeToString(key.encoded, Base64.NO_WRAP)}")
         val cipher = createEncryptionCipher(key)
         val encryptedData = cipher.doFinal(input)
         return EncryptionResult(encryptedData, cipher.iv)
     }
 
     override fun decrypt(key: SecretKey, encryptionResult: EncryptionResult): ByteArray {
+        Timber.d("DB DECRYPTION KEY (Base64): ${Base64.encodeToString(key.encoded, Base64.NO_WRAP)}")
+        print("DB DECRYPTION KEY (Base64): ${Base64.encodeToString(key.encoded, Base64.NO_WRAP)}")
         val cipher = createDecryptionCipher(key, encryptionResult.initializationVector)
         return cipher.doFinal(encryptionResult.encryptedByteArray)
     }

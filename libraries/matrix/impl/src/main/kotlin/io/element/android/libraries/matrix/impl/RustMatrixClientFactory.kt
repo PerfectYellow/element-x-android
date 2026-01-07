@@ -66,6 +66,7 @@ class RustMatrixClientFactory(
     private val sessionDelegate = RustClientSessionDelegate(sessionStore, appCoroutineScope, coroutineDispatchers)
 
     suspend fun create(sessionData: SessionData): RustMatrixClient = withContext(coroutineDispatchers.io) {
+        Timber.d("DATABASE KEY: ${sessionData.passphrase}")
         val client = getBaseClientBuilder(
             sessionPaths = sessionData.getSessionPaths(),
             passphrase = sessionData.passphrase,
