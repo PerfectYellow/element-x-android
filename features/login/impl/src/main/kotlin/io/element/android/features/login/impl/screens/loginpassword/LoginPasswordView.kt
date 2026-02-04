@@ -142,13 +142,13 @@ fun LoginPasswordView(
                 modifier = Modifier.padding(top = 20.dp, start = 16.dp, end = 16.dp),
 //                iconStyle = BigIcon.Style.Default(CompoundIcons.UserProfileSolid()),
                 iconStyle = null,
-                title = "در المنتتان باشید",
+                title = "در ارتباط باشید",
 //                title = stringResource(
 //                    id = R.string.screen_account_provider_signin_title,
 //                    state.accountProvider.title
 //                ),
 //                subTitle = stringResource(id = R.string.screen_login_subtitle)
-                subTitle = " به سریع ترین المنت خوش آمدید\n باز طراحی شده برای سرعت و سادگی "
+                subTitle = " به پیام رسان خوش آمدید\nطراحی شده برای سرعت و سادگی "
             )
             Spacer(Modifier.height(40.dp))
             LoginForm(

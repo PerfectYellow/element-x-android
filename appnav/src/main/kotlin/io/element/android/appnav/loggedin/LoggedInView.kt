@@ -49,29 +49,29 @@ fun LoggedInView(
             isVisible = state.showSyncSpinner,
         )
     }
-    when (state.pusherRegistrationState) {
-        is AsyncData.Uninitialized,
-        is AsyncData.Loading,
-        is AsyncData.Success -> Unit
-        is AsyncData.Failure -> {
-            state.pusherRegistrationState.errorOrNull()
-                ?.takeIf { !state.ignoreRegistrationError }
-                ?.getReason()
-                ?.let { reason ->
-                    ErrorDialogWithDoNotShowAgain(
-                        content = stringResource(id = CommonStrings.common_error_registering_pusher_android, reason),
-                        cancelText = stringResource(id = CommonStrings.common_settings),
-                        onDismiss = {
-                            state.eventSink(LoggedInEvents.CloseErrorDialog(it))
-                        },
-                        onCancel = {
-                            state.eventSink(LoggedInEvents.CloseErrorDialog(false))
-                            navigateToNotificationTroubleshoot()
-                        }
-                    )
-                }
-        }
-    }
+//    when (state.pusherRegistrationState) {
+//        is AsyncData.Uninitialized,
+//        is AsyncData.Loading,
+//        is AsyncData.Success -> Unit
+//        is AsyncData.Failure -> {
+//            state.pusherRegistrationState.errorOrNull()
+//                ?.takeIf { !state.ignoreRegistrationError }
+//                ?.getReason()
+//                ?.let { reason ->
+//                    ErrorDialogWithDoNotShowAgain(
+//                        content = stringResource(id = CommonStrings.common_error_registering_pusher_android, reason),
+//                        cancelText = stringResource(id = CommonStrings.common_settings),
+//                        onDismiss = {
+//                            state.eventSink(LoggedInEvents.CloseErrorDialog(it))
+//                        },
+//                        onCancel = {
+//                            state.eventSink(LoggedInEvents.CloseErrorDialog(false))
+//                            navigateToNotificationTroubleshoot()
+//                        }
+//                    )
+//                }
+//        }
+//    }
 
     // Set the force migration dialog here so it's always displayed over every screen
     if (state.forceNativeSlidingSyncMigration) {

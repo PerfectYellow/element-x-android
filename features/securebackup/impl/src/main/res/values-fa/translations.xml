@@ -57,8 +57,11 @@
   <string name="screen_recovery_key_setup_generate_key">"تولید کلید بازیابیتان"</string>
   <string name="screen_recovery_key_setup_generate_key_description">"با کسی هم‌رسانیش نکنید!"</string>
   <string name="screen_recovery_key_setup_success">"برپایی بازیابی موفّق بود"</string>
+  <string name="screen_reset_encryption_confirmation_alert_title">"آیا مطمئن هستید میخواهید هویتتان را مجدد راه اندازی کنید؟"</string>
   <string name="screen_recovery_key_setup_title">"برپایی بازیابی"</string>
   <string name="screen_reset_encryption_confirmation_alert_action">"بله. اکنون بازنشانی شود"</string>
   <string name="screen_reset_encryption_confirmation_alert_subtitle">"این فرایند بازگشت‌ناپذیر است."</string>
   <string name="screen_reset_encryption_password_placeholder">"ورود…"</string>
+    <string name="screen_reset_encryption_password_subtitle">"تایید برای راه اندازی مجدد هویت"</string>
+  <string name="screen_reset_encryption_password_title">"لطفا رمزعبور خود را وارد کنید"</string>
 </resources>

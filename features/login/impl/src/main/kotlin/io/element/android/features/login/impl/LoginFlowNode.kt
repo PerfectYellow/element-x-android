@@ -90,15 +90,17 @@ class LoginFlowNode(
 
     override fun onBuilt() {
         super.onBuilt()
+
+//        val serverUrl = "https://matrix.org"
+        val serverUrl = "http://10.0.2.2:8008" // localhost
         appCoroutineScope.launch {
-            accountProviderDataSource.setAccountProvider(
-                AccountProvider(
-//                    url = "https://matrix.org",
-                    url = "http://10.0.2.2:8008",
+            val accountProvider = AccountProvider(
+                    url = serverUrl,
                     isMatrixOrg = false,
                     isPublic = true,
-                )
             )
+            accountProviderDataSource.setAccountProvider(accountProvider)
+
             backstack.newRoot(NavTarget.LoginPassword)
         }
         lifecycle.subscribe(

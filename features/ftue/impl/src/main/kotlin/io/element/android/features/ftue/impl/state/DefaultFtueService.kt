@@ -124,15 +124,17 @@ class DefaultFtueService(
     }
 
     private suspend fun needsAnalyticsOptIn(): Boolean {
-        return analyticsService.didAskUserConsentFlow.first().not()
+//        return analyticsService.didAskUserConsentFlow.first().not()
+        return false
     }
 
     private suspend fun shouldAskNotificationPermissions(): Boolean {
         return if (sdkVersionProvider.isAtLeast(Build.VERSION_CODES.TIRAMISU)) {
-            val permission = Manifest.permission.POST_NOTIFICATIONS
-            val isPermissionDenied = permissionStateProvider.isPermissionDenied(permission).first()
-            val isPermissionGranted = permissionStateProvider.isPermissionGranted(permission)
-            !isPermissionGranted && !isPermissionDenied
+//            val permission = Manifest.permission.POST_NOTIFICATIONS
+//            val isPermissionDenied = permissionStateProvider.isPermissionDenied(permission).first()
+//            val isPermissionGranted = permissionStateProvider.isPermissionGranted(permission)
+//            !isPermissionGranted && !isPermissionDenied
+            false
         } else {
             false
         }
