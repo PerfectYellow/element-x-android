@@ -10,6 +10,11 @@
   <string name="screen_advanced_settings_hide_invite_avatars_toggle_title">"نهفتن چهرک‌ها در درخواست‌های دعوت اتاق"</string>
   <string name="screen_advanced_settings_hide_timeline_media_toggle_title">"نهفتن رسانه در خط زمانی"</string>
   <string name="screen_advanced_settings_labs">"آزمایشگاه‌ها"</string>
+  <string name="screen_advanced_settings_view_source_description">"گزینه فعال کردن مشاهده منبع پیام در جدول زمانی."</string>
+  <string name="screen_advanced_settings_share_presence_description">"اگر خاموش باشد، نمی‌توانید رسیدهای خوانده شده یا اعلان‌های تایپ را ارسال یا دریافت کنید."</string>
+  <string name="screen_advanced_settings_media_compression_description">"عکس‌ها و ویدیوها را سریع‌تر آپلود کنید و مصرف اینترنت را کاهش دهید."</string>
+  <string name="screen_labs_header_title">"تجربه کردن نسخه آزمایشی؟"</string>
+  <string name="screen_labs_header_description">"آخرین ایده‌های در حال توسعه ما را امتحان کنید. این ویژگی‌ها هنوز نهایی نشده‌اند؛ ممکن است ناپایدار باشند و در آینده ممکن است تغییر کنند."</string>
   <string name="screen_advanced_settings_media_compression_title">"بهینه سازی کیفیت رسانه"</string>
   <string name="screen_advanced_settings_moderation_and_safety_section_title">"نظارت و امنیت"</string>
   <string name="screen_advanced_settings_optimise_video_upload_quality_high">"زیاد (۱۰۸۰ت)"</string>

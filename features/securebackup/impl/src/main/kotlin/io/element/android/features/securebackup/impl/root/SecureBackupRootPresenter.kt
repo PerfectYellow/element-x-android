@@ -76,7 +76,7 @@ class SecureBackupRootPresenter(
             backupState = backupState,
             doesBackupExistOnServer = doesBackupExistOnServerAction.value,
             recoveryState = recoveryState,
-            appName = buildMeta.applicationName,
+            appName = "Messenger",//buildMeta.applicationName,
             displayKeyStorageDisabledError = displayKeyStorageDisabledError,
             snackbarMessage = snackbarMessage,
             eventSink = ::handleEvent,

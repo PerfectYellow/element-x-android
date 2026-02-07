@@ -106,7 +106,7 @@ class SetupPinPresenter(
             confirmPinEntry = confirmPinEntry,
             isConfirmationStep = isConfirmationStep,
             setupPinFailure = setupPinFailure,
-            appName = buildMeta.applicationName,
+            appName = "Messenger",//buildMeta.applicationName,
             eventSink = ::handleEvent,
         )
     }
