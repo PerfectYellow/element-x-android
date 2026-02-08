@@ -112,7 +112,25 @@ class JoinRoomByAddressPresenter(
             onChange(RoomAddressState.Unknown)
             // debounce the room address resolution
             delay(300)
-            val roomAlias = tryOrNull { RoomAlias(fullAddress) }
+
+            val addressToResolve = if (fullAddress.isBlank()) {
+                fullAddress
+            } else {
+                val customServerUrl = "72.62.114.117"
+                var address = fullAddress
+                if (!address.startsWith('#')) {
+                    address = "#$address"
+                }
+                if (address.endsWith(':')) {
+                    "$address${customServerUrl}"
+                } else if (!address.contains(':')) {
+                    "$address:${customServerUrl}"
+                } else {
+                    address
+                }
+            }
+
+            val roomAlias = tryOrNull { RoomAlias(addressToResolve) }
             if (roomAlias != null && roomAliasHelper.isRoomAliasValid(roomAlias)) {
                 onChange(RoomAddressState.Resolving)
                 onChange(client.resolveRoomAddress(roomAlias))

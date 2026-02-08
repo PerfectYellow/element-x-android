@@ -61,6 +61,7 @@ import io.element.android.libraries.matrix.ui.components.UnsavedAvatar
 import io.element.android.libraries.matrix.ui.room.address.RoomAddressField
 import io.element.android.libraries.permissions.api.PermissionsView
 import io.element.android.libraries.ui.strings.CommonStrings
+import kotlin.jvm.optionals.getOrNull
 
 @Composable
 fun ConfigureRoomView(
@@ -131,16 +132,30 @@ fun ConfigureRoomView(
                         state.eventSink(ConfigureRoomEvents.RoomAccessChanged(it))
                     },
                 )
-                RoomAddressField(
-                    modifier = Modifier.padding(horizontal = 16.dp),
-                    address = state.config.roomVisibility.roomAddress.value,
-                    homeserverName = state.homeserverName,
-                    addressValidity = state.roomAddressValidity,
-                    onAddressChange = { state.eventSink(ConfigureRoomEvents.RoomAddressChanged(it)) },
-                    label = stringResource(R.string.screen_create_room_room_address_section_title),
-                    supportingText = stringResource(R.string.screen_create_room_room_address_section_footer),
-                )
+//                RoomAddressField(
+//                    modifier = Modifier.padding(horizontal = 16.dp),
+//                    address = state.config.roomVisibility.roomAddress.value,
+//                    homeserverName = state.homeserverName,
+//                    addressValidity = state.roomAddressValidity,
+//                    onAddressChange = { state.eventSink(ConfigureRoomEvents.RoomAddressChanged(it)) },
+//                    label = stringResource(R.string.screen_create_room_room_address_section_title),
+//                    supportingText = stringResource(R.string.screen_create_room_room_address_section_footer),
+//                )
                 Spacer(Modifier)
+            }
+
+            if (state.config.roomVisibility !is RoomVisibilityState.Private) {
+                Column {
+                    RoomAddressField(
+                        modifier = Modifier.padding(horizontal = 16.dp),
+                        address = state.config.roomVisibility.roomAddress().getOrNull().orEmpty(),
+                        homeserverName = state.homeserverName,
+                        addressValidity = state.roomAddressValidity,
+                        onAddressChange = { state.eventSink(ConfigureRoomEvents.RoomAddressChanged(it)) },
+                        label = stringResource(R.string.screen_create_room_room_address_section_title),
+                        supportingText = stringResource(R.string.screen_create_room_room_address_section_footer),
+                    )
+                }
             }
         }
     }

@@ -3,10 +3,12 @@
   <string name="a11y_add_reaction">"افزودن واکنش: %1$s"</string>
   <string name="a11y_avatar">"چهرک"</string>
   <string name="a11y_delete">"حذف"</string>
+  <string name="screen_pinned_timeline_empty_state_headline">"پیام‌های مهم را پین کنید تا به راحتی قابل مشاهده باشند"</string>
   <plurals name="a11y_digits_entered">
     <item quantity="one">"%1$d رقم وارد شده"</item>
     <item quantity="other">"%1$d رقم وارد شده"</item>
   </plurals>
+  <string name="screen_pinned_timeline_empty_state_description">"روی یک پیام کلیک کنید و “%1$s” را برای درج در اینجا انتخاب کنید."</string>
   <string name="a11y_edit_avatar">"ویرایش چهرک"</string>
   <string name="a11y_edit_room_address_hint">"نشانی کامل %1$s خواهد بود"</string>
   <string name="a11y_encryption_details">"جزییات رمزنگاری"</string>

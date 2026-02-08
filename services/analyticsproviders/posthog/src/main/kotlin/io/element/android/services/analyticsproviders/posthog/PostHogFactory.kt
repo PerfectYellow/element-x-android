@@ -29,7 +29,7 @@ class PostHogFactory(
             PostHogAndroidConfig(
                 apiKey = endpoint.apiKey,
                 host = endpoint.host,
-                captureApplicationLifecycleEvents = false,
+                captureApplicationLifecycleEvents = true,
                 captureDeepLinks = false,
                 captureScreenViews = false,
             ).also {

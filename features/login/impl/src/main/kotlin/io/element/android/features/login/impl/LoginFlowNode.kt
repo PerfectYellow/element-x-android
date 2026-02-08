@@ -90,8 +90,8 @@ class LoginFlowNode(
 
     override fun onBuilt() {
         super.onBuilt()
-        val serverUrl = "http://72.62.114.117:8008"
-//        val serverUrl = "https://matrix.org"
+
+        val serverUrl = "https://matrix.org"
 //        val serverUrl = "http://10.0.2.2:8008" // localhost
         appCoroutineScope.launch {
             val accountProvider = AccountProvider(

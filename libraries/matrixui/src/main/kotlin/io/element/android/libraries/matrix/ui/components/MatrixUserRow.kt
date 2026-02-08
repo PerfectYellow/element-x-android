@@ -27,7 +27,7 @@ fun MatrixUserRow(
 ) = UserRow(
     avatarData = matrixUser.getAvatarData(avatarSize),
     name = matrixUser.getBestName(),
-    subtext = if (matrixUser.displayName.isNullOrEmpty()) null else matrixUser.userId.value,
+    subtext = if (matrixUser.displayName.isNullOrEmpty()) null else matrixUser.userId.extractedDisplayName,
     modifier = modifier,
     trailingContent = trailingContent,
 )

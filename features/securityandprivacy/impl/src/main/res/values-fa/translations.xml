@@ -19,4 +19,11 @@
   <string name="screen_security_and_privacy_room_publishing_section_header">"انتشار اتاق"</string>
   <string name="screen_security_and_privacy_room_visibility_section_header">"نمایانی اتاق"</string>
   <string name="screen_security_and_privacy_title">"امنیت و محرمانگی"</string>
+  <string name="screen_security_and_privacy_room_visibility_section_footer">"آدرس‌ها راهی برای پیدا کردن و دسترسی به اتاق‌ها و فضاها هستند. این همچنین تضمین می‌کند که می‌توانید به راحتی آنها را با دیگران به اشتراک بگذارید."</string>
+  <string name="screen_security_and_privacy_room_address_section_footer">"برای اینکه بتوانید آن را در فهرست عمومی مشاهده کنید، به یک آدرس نیاز دارید."</string>
+  <string name="screen_edit_room_address_room_address_section_footer">"برای اینکه بتوانید آن را در فهرست عمومی مشاهده کنید، به یک آدرس نیاز دارید."</string>
+  <string name="screen_security_and_privacy_room_directory_visibility_toggle_title">"قابل مشاهده در فهرست عمومی"</string>
+  <string name="screen_security_and_privacy_room_directory_visibility_toggle_description">"اجازه بدهید با جستجو در فهرست عمومی، بتوان این اتاق را پیدا کرد."</string>
+  <string name="screen_security_and_privacy_room_history_section_header">"چه کسی می‌تواند تاریخچه را بخواند"</string>
+  <string name="screen_security_and_privacy_room_history_since_selecting_option_title">"فقط اعضا از زمان انتخاب این گزینه"</string>
 </resources>
