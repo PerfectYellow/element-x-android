@@ -311,7 +311,7 @@
   <string name="common_third_party_notices">"تذکّرهای سوم‌شخص"</string>
   <string name="common_thread">"رشته"</string>
   <string name="common_topic">"موضوع"</string>
-  <string name="common_topic_placeholder">"این اتاق دربارهٔ چیست؟"</string>
+  <string name="common_topic_placeholder">"این گروه دربارهٔ چیست؟"</string>
   <string name="common_unable_to_decrypt">"ناتوان در رمزگشایی"</string>
   <string name="common_unable_to_decrypt_no_access">"به این پیام دسترسی ندارید"</string>
   <string name="common_unable_to_invite_message">"دعوت‌ها نتوانستند به کاربرانی برسند."</string>
@@ -342,7 +342,7 @@
   <string name="dialog_confirm_link_title">"این پیوند را دوباره بررسی کنید"</string>
   <string name="dialog_default_video_quality_selector_title">"کیفیت بارگذاری ویدیو"</string>
   <string name="dialog_room_reported">"اتاق گزارش شد"</string>
-  <string name="dialog_room_reported_and_left">"گزارش و از اتاق خارج شد"</string>
+  <string name="dialog_room_reported_and_left">"گزارش و از گروه خارج شد"</string>
   <string name="dialog_title_confirmation">"تایید"</string>
   <string name="dialog_title_error">"خطا"</string>
   <string name="dialog_title_success">"موفّقیت"</string>

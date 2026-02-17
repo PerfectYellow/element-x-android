@@ -28,6 +28,7 @@ import io.element.android.libraries.matrix.api.core.toRoomIdOrAlias
 import io.element.android.libraries.matrix.api.room.alias.RoomAliasHelper
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withTimeoutOrNull
+import io.element.android.appconfig.AuthenticationConfig
 import kotlin.time.Duration.Companion.seconds
 
 private const val ADDRESS_RESOLVE_TIMEOUT_IN_SECONDS = 10
@@ -116,7 +117,7 @@ class JoinRoomByAddressPresenter(
             val addressToResolve = if (fullAddress.isBlank()) {
                 fullAddress
             } else {
-                val customServerUrl = "72.62.114.117"
+                val customServerUrl = AuthenticationConfig.HOMESERVER
                 var address = fullAddress
                 if (!address.startsWith('#')) {
                     address = "#$address"

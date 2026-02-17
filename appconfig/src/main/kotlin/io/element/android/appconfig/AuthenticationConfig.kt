@@ -10,6 +10,13 @@ package io.element.android.appconfig
 
 object AuthenticationConfig {
     const val MATRIX_ORG_URL = "https://matrix.org"
+    val HOMESERVER: String get() = LOCAL_HOST
+
+    private const val PRIVATE_SERVER_DOMAIN = "elementsynapse.duckdns.org"
+
+    private const val PRIVATE_SERVER_HTTP_IP = "http://72.62.114.117:8008"
+
+    private const val LOCAL_HOST = "http://10.0.2.2:8008"
 
     /**
      * URL with some docs that explain what's sliding sync and how to add it to your home server.

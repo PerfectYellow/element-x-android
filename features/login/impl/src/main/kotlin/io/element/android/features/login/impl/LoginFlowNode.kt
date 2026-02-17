@@ -31,6 +31,7 @@ import dev.zacsweers.metro.AppScope
 import dev.zacsweers.metro.Assisted
 import dev.zacsweers.metro.AssistedInject
 import io.element.android.annotations.ContributesNode
+import io.element.android.appconfig.AuthenticationConfig
 import io.element.android.compound.theme.ElementTheme
 import io.element.android.features.login.api.LoginEntryPoint
 import io.element.android.features.login.impl.accountprovider.AccountProvider
@@ -90,9 +91,7 @@ class LoginFlowNode(
 
     override fun onBuilt() {
         super.onBuilt()
-        val serverUrl = "http://72.62.114.117:8008"
-//        val serverUrl = "https://matrix.org"
-//        val serverUrl = "http://10.0.2.2:8008" // localhost
+        val serverUrl = AuthenticationConfig.HOMESERVER
         appCoroutineScope.launch {
             val accountProvider = AccountProvider(
                     url = serverUrl,
