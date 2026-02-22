@@ -11,12 +11,13 @@ package io.element.android.appconfig
 object AuthenticationConfig {
     const val MATRIX_ORG_URL = "https://matrix.org"
     val HOMESERVER: String get() = PRIVATE_SERVER_DOMAIN
+    val HOMESERVER_NAME: String get() = PRIVATE_SERVER_NAME
 
     private const val PRIVATE_SERVER_DOMAIN = "https://elementsynapse.duckdns.org"
 
     private const val PRIVATE_SERVER_NAME = "elementsynapse.duckdns.org"
 
-    private const val PRIVATE_SERVER_HTTP_IP = "http://72.62.114.117:8008"
+    private const val PRIVATE_SERVER_HTTP_IP = "http://70.60.114.117:8008"
 
     private const val LOCAL_HOST = "http://10.0.2.2:8008"
 

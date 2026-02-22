@@ -117,7 +117,7 @@ class JoinRoomByAddressPresenter(
             val addressToResolve = if (fullAddress.isBlank()) {
                 fullAddress
             } else {
-                val customServerUrl = AuthenticationConfig.HOMESERVER
+                val customServerUrl = AuthenticationConfig.HOMESERVER_NAME
                 var address = fullAddress
                 if (!address.startsWith('#')) {
                     address = "#$address"
