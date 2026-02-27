@@ -13,9 +13,9 @@ object AuthenticationConfig {
     val HOMESERVER: String get() = PRIVATE_SERVER_DOMAIN
     val HOMESERVER_NAME: String get() = PRIVATE_SERVER_NAME
 
-    private const val PRIVATE_SERVER_DOMAIN = "https://elementsynapse.duckdns.org"
+    private const val PRIVATE_SERVER_DOMAIN = "https://xratmoon.online"  // "https://elementsynapse.duckdns.org"
 
-    private const val PRIVATE_SERVER_NAME = "elementsynapse.duckdns.org"
+    private const val PRIVATE_SERVER_NAME = "xratmoon.online"  // "elementsynapse.duckdns.org"
 
     private const val PRIVATE_SERVER_HTTP_IP = "http://70.60.114.117:8008"
 
