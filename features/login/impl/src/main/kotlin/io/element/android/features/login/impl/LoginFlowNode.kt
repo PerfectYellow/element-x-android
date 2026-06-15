@@ -57,6 +57,15 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.parcelize.Parcelize
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.Alignment
+import com.bumble.appyx.core.node.node
+import com.bumble.appyx.navmodel.backstack.operation.newRoot
+import io.element.android.features.login.impl.accountprovider.AccountProvider
+import io.element.android.libraries.designsystem.theme.components.CircularProgressIndicator
+import io.element.android.appconfig.AuthenticationConfig
+
 
 @ContributesNode(AppScope::class)
 @AssistedInject
@@ -71,7 +80,7 @@ class LoginFlowNode(
     private val preferencesEntryPoint: PreferencesEntryPoint,
 ) : BaseFlowNode<LoginFlowNode.NavTarget>(
     backstack = BackStack(
-        initialElement = NavTarget.CheckClassicFlow,
+        initialElement = NavTarget.LoginPassword(),
         savedStateMap = buildContext.savedStateMap,
     ),
     buildContext = buildContext,
@@ -90,6 +99,15 @@ class LoginFlowNode(
 
     override fun onBuilt() {
         super.onBuilt()
+        val serverUrl = AuthenticationConfig.HOMESERVER
+        appCoroutineScope.launch {
+            val accountProvider = AccountProvider(
+                url = serverUrl,
+                isMatrixOrg = if (AuthenticationConfig.HOMESERVER == "https://matrix.org") true else false,
+                isPublic = true,
+            )
+            accountProviderDataSource.setAccountProvider(accountProvider)
+        }
         lifecycle.subscribe(
             onResume = {
                 if (externalAppStarted) {
@@ -108,6 +126,9 @@ class LoginFlowNode(
     }
 
     sealed interface NavTarget : Parcelable {
+        @Parcelize
+        data object Initialising : NavTarget
+
         @Parcelize
         data object CheckClassicFlow : NavTarget
 
@@ -147,6 +168,14 @@ class LoginFlowNode(
 
     override fun resolve(navTarget: NavTarget, buildContext: BuildContext): Node {
         return when (navTarget) {
+            NavTarget.Initialising -> {
+                node(buildContext) { modifier ->
+                    Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        CircularProgressIndicator()
+                    }
+                }
+            }
+
             NavTarget.CheckClassicFlow -> {
                 val callback = object : ClassicFlowNode.Callback {
                     override fun navigateToOnBoarding(allowBackNavigation: Boolean) {
@@ -309,10 +338,11 @@ class LoginFlowNode(
                 val callback = object : SearchAccountProviderNode.Callback {
                     override fun onDone() {
                         // Go back to the Account Provider screen
-                        val confirmAccountProvider = backstack.elements.value.firstOrNull {
-                            it.key.navTarget is NavTarget.ConfirmAccountProvider
-                        }?.key?.navTarget ?: NavTarget.ConfirmAccountProvider(isAccountCreation = false)
-                        backstack.singleTop(confirmAccountProvider)
+//                        val confirmAccountProvider = backstack.elements.value.firstOrNull {
+//                            it.key.navTarget is NavTarget.ConfirmAccountProvider
+//                        }?.key?.navTarget ?: NavTarget.ConfirmAccountProvider(isAccountCreation = false)
+//                        backstack.singleTop(confirmAccountProvider)
+//                        backstack.push(NavTarget.LoginPassword)
                     }
                 }
 
@@ -363,3 +393,4 @@ class LoginFlowNode(
         BackstackView(transitionHandler = rememberLoginFlowTransitionHandler())
     }
 }
+

@@ -54,6 +54,14 @@ import io.element.android.libraries.matrix.api.auth.OAuthDetails
 import io.element.android.libraries.testtags.TestTags
 import io.element.android.libraries.testtags.testTag
 import io.element.android.libraries.ui.strings.CommonStrings
+import androidx.compose.runtime.mutableStateOf
+import io.element.android.libraries.designsystem.components.form.textFieldState
+import io.element.android.libraries.designsystem.theme.components.TextField
+import androidx.compose.foundation.lazy.items
+import io.element.android.features.login.impl.accountprovider.AccountProviderView
+import io.element.android.features.login.impl.changeserver.ChangeServerEvents
+import io.element.android.libraries.designsystem.theme.components.CircularProgressIndicator
+
 
 // Refs:
 // FTUE:
@@ -220,14 +228,14 @@ private fun OnBoardingContent(state: OnBoardingState) {
                 horizontalAlignment = CenterHorizontally,
             ) {
                 Text(
-                    text = stringResource(id = R.string.screen_onboarding_welcome_title),
+                    text = "در المنتتان باشید",
                     color = ElementTheme.colors.textPrimary,
                     style = ElementTheme.typography.fontHeadingLgBold,
                     textAlign = TextAlign.Center
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = stringResource(id = R.string.screen_onboarding_welcome_message, state.productionApplicationName),
+                    text = " به سریع ترین المنت خوش آمدید\n باز طراحی شده برای سرعت و سادگی ",
                     color = ElementTheme.colors.textSecondary,
                     style = ElementTheme.typography.fontBodyLgRegular.copy(fontSize = 17.sp),
                     textAlign = TextAlign.Center
@@ -314,6 +322,7 @@ private fun OnBoardingButtons(
                     .fillMaxWidth()
             )
         }
+
         if (state.isAddingAccount.not()) {
             if (state.canReportBug) {
                 // Add a report problem text button. Use a Text since we need a special theme here.

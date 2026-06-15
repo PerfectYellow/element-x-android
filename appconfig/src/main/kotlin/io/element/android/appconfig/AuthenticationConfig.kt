@@ -11,6 +11,12 @@ package io.element.android.appconfig
 object AuthenticationConfig {
     const val MATRIX_ORG_URL = "https://matrix.org"
 
+    val HOMESERVER: String get() = PRIVATE_SERVER_DOMAIN
+
+    private const val PRIVATE_SERVER_DOMAIN = "https://matrix.invisiblesociety.space"
+
+    private const val PRIVATE_SERVER_NAME = "matrix.invisiblesociety.space"
+
     /**
      * URL with some docs that explain what's sliding sync and how to add it to your home server.
      */

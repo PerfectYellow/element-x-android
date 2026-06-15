@@ -42,15 +42,17 @@ import io.element.android.libraries.designsystem.theme.components.Text
 fun IconTitleSubtitleMolecule(
     title: String,
     subTitle: String?,
-    iconStyle: BigIcon.Style,
+    iconStyle: BigIcon.Style?,
     modifier: Modifier = Modifier,
     showBetaLabel: Boolean = false,
 ) {
     Column(modifier) {
-        BigIcon(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            style = iconStyle,
-        )
+        if (iconStyle != null) {
+            BigIcon(
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+                style = iconStyle,
+            )
+        }
         Spacer(modifier = Modifier.height(16.dp))
         FlowRow(
             modifier = Modifier.fillMaxWidth(),

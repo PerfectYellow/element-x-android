@@ -40,7 +40,7 @@ class LoginPasswordNode(
         LoginPasswordView(
             state = state,
             modifier = modifier,
-            onBackClick = ::navigateUp,
+            onBackClick = { navigateUp() },
         )
     }
 }

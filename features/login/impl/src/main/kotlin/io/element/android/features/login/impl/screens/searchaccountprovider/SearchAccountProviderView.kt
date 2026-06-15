@@ -61,6 +61,10 @@ import io.element.android.libraries.designsystem.theme.components.TopAppBar
 import io.element.android.libraries.testtags.TestTags
 import io.element.android.libraries.testtags.testTag
 import io.element.android.libraries.ui.strings.CommonStrings
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import io.element.android.libraries.designsystem.theme.components.Button
+
 
 /**
  * https://www.figma.com/file/o9p34zmiuEpZRyvZXJZAYL/FTUE?type=design&node-id=611-61435
@@ -74,12 +78,13 @@ fun SearchAccountProviderView(
     modifier: Modifier = Modifier,
 ) {
     val eventSink = state.eventSink
+    var homeserverUrl by remember { mutableStateOf("") }
     Scaffold(
         modifier = modifier,
         topBar = {
             TopAppBar(
                 title = {},
-                navigationIcon = { BackButton(onClick = onBackClick) }
+//                navigationIcon = { BackButton(onClick = onBackClick) }
             )
         }
     ) { padding ->
@@ -103,42 +108,34 @@ fun SearchAccountProviderView(
                     // TextInput
                     var userInputState by textFieldState(stateValue = state.userInput)
                     val focusManager = LocalFocusManager.current
+
                     TextField(
-                        value = userInputState,
-                        // readOnly = isLoading,
+                        value = homeserverUrl,
+                        onValueChange = { homeserverUrl = it },
+                        label = "Homeserver URL",
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
-                            .onTabOrEnterKeyFocusNext(focusManager)
-                            .testTag(TestTags.changeServerServer),
-                        onValueChange = {
-                            userInputState = it
-                            eventSink(SearchAccountProviderEvents.UserInput(it))
-                        },
+                            .padding(start = 16.dp, end = 16.dp, bottom = 16.dp),
                         keyboardOptions = KeyboardOptions(
                             keyboardType = KeyboardType.Uri,
                             imeAction = ImeAction.Done,
                         ),
-                        keyboardActions = KeyboardActions(onDone = {
-                            focusManager.moveFocus(FocusDirection.Down)
-                        }),
                         singleLine = true,
-                        trailingIcon = if (userInputState.isNotEmpty()) {
-                            {
-                                Box(Modifier.clickable {
-                                    userInputState = ""
-                                    eventSink(SearchAccountProviderEvents.UserInput(""))
-                                }) {
-                                    Icon(
-                                        imageVector = CompoundIcons.Close(),
-                                        contentDescription = stringResource(CommonStrings.action_clear)
-                                    )
-                                }
-                            }
-                        } else {
-                            null
+                    )
+
+                    Button(
+                        text = "Enter",
+                        onClick = {
+                            val customServer = AccountProvider(
+                                url = homeserverUrl,
+                                isMatrixOrg = false,
+                                isPublic = true,
+                            )
+                            state.changeServerState.eventSink(ChangeServerEvents.ChangeServer(customServer))
                         },
-                        supportingText = stringResource(id = R.string.screen_account_provider_form_notice),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .testTag(TestTags.onBoardingSignIn)
+                            .padding(start = 16.dp, end = 16.dp, bottom = 16.dp)
                     )
                 }
 

@@ -26,6 +26,9 @@ import io.element.android.libraries.matrix.api.auth.MatrixAuthenticationService
 import io.element.android.libraries.matrix.api.core.SessionId
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import android.util.Log
+import timber.log.Timber
+
 
 @AssistedInject
 class LoginPasswordPresenter(
@@ -81,13 +84,22 @@ class LoginPasswordPresenter(
 
     private fun CoroutineScope.submit(formState: LoginFormState, loggedInState: MutableState<AsyncData<SessionId>>) = launch {
         loggedInState.value = AsyncData.Loading()
-        authenticationService.login(formState.login.trim(), formState.password)
-            .onSuccess { sessionId ->
-                loggedInState.value = AsyncData.Success(sessionId)
-            }
-            .onFailure { failure ->
+        authenticationService.setHomeserver(accountProviderDataSource.flow.value.url).fold(
+            onSuccess = {
+                Timber.d("setHomeserver success")
+                authenticationService.login(formState.login.trim(), formState.password)
+                    .onSuccess { sessionId ->
+                        loggedInState.value = AsyncData.Success(sessionId)
+                    }
+                    .onFailure { failure ->
+                        loggedInState.value = AsyncData.Failure(failure)
+                    }
+            },
+            onFailure = { failure ->
+                Timber.e(failure, "setHomeserver failed")
                 loggedInState.value = AsyncData.Failure(failure)
             }
+        )
     }
 
     private fun updateFormState(formState: MutableState<LoginFormState>, updateLambda: LoginFormState.() -> LoginFormState) {
