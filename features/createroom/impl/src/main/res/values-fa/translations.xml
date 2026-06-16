@@ -11,4 +11,5 @@
   <string name="screen_create_room_room_address_section_title">"نشانی اتاق"</string>
   <string name="screen_create_room_room_visibility_section_title">"نمایانی اتاق"</string>
   <string name="screen_create_room_topic_label">"موضوع (اختیاری)"</string>
+    <string name="screen_create_room_room_address_section_footer">"برای اینکه این اتاق در فهرست عمومی اتاق‌ها قابل مشاهده باشد، به آدرس اتاق نیاز دارید."</string>
 </resources>
