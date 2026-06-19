@@ -15,7 +15,7 @@
   <string name="screen_app_lock_setup_biometric_unlock_subtitle">"زمانتان را ذخیره کرده و از %1$s برای قفل‌گشایی هربارهٔ کاره استفاده کنید"</string>
   <string name="screen_app_lock_setup_choose_pin">"گزینش پین"</string>
   <string name="screen_app_lock_setup_confirm_pin">"تأیید پین"</string>
-  <string name="screen_app_lock_setup_pin_context">"قفل کردن %1$s برای افزودن امنیت بیشتر به گفتگوهایتان.
+  <string name="screen_app_lock_setup_pin_context">"قفل کردن برای افزودن امنیت بیشتر به گفتگوهایتان.
 
 چیزی به یاد ماندنی انتخاب کنید. اگر این پین را فراموش کنید، از برنامه خارج خواهید شد."</string>
   <string name="screen_app_lock_setup_pin_forbidden_dialog_content">"به دلیل امنیتی نمی‌توانید این پین را برگزینید"</string>

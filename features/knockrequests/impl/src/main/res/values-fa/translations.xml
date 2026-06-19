@@ -18,6 +18,6 @@
   <string name="screen_knock_requests_list_title">"درخواست‌های پیوستن"</string>
   <string name="screen_room_multiple_knock_requests_view_all_button_title">"دیدن همه"</string>
   <string name="screen_room_single_knock_request_accept_button_title">"پذیرش"</string>
-  <string name="screen_room_single_knock_request_title">"%1$s می‌خواهد به این اتاق بپیوندد"</string>
+  <string name="screen_room_single_knock_request_title">"%1$s می‌خواهد به این گروه بپیوندد"</string>
   <string name="screen_room_single_knock_request_view_button_title">"نما"</string>
 </resources>

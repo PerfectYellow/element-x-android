@@ -7,6 +7,7 @@
   <string name="screen_chat_backup_key_storage_toggle_description">"بارگذاری کلیدها از ین افزاره"</string>
   <string name="screen_chat_backup_key_storage_toggle_title">"اجازهٔ ذخیرهٔ کلید"</string>
   <string name="screen_chat_backup_recovery_action_change">"تغییر کلید بازیابی"</string>
+  <string name="screen_chat_backup_recovery_action_change_description">"چت‌های شما به طور خودکار با رمزگذاری سرتاسری پشتیبان‌گیری می‌شوند. برای بازیابی این پشتیبان‌گیری و حفظ هویت دیجیتال خود در زمانی که دسترسی به تمام دستگاه‌هایتان را از دست می‌دهید، به کلید بازیابی خود نیاز خواهید داشت."</string>
   <string name="screen_chat_backup_recovery_action_confirm">"ورود کلید بازیابی"</string>
   <string name="screen_chat_backup_recovery_action_confirm_description">"ذخیره‌ساز کلیدتان از هم‌گام بودن در آمده."</string>
   <string name="screen_chat_backup_recovery_action_setup">"دریافت کلید بازیابی"</string>
@@ -60,7 +61,9 @@
   <string name="screen_reset_encryption_confirmation_alert_action">"بله. اکنون بازنشانی شود"</string>
   <string name="screen_reset_encryption_confirmation_alert_subtitle">"این فرایند بازگشت‌ناپذیر است."</string>
   <string name="screen_reset_encryption_password_placeholder">"ورود…"</string>
-    <string name="screen_reset_encryption_confirmation_alert_title">"آیا مطمئن هستید میخواهید هویتتان را مجدد راه اندازی کنید؟"</string>
-    <string name="screen_reset_encryption_password_subtitle">"تایید برای راه اندازی مجدد هویت"</string>
-    <string name="screen_reset_encryption_password_title">"لطفا رمزعبور خود را وارد کنید"</string>
+  <string name="screen_reset_encryption_confirmation_alert_title">"آیا مطمئن هستید میخواهید هویتتان را مجدد راه اندازی کنید؟"</string>
+  <string name="screen_reset_encryption_password_subtitle">"تایید برای راه اندازی مجدد هویت"</string>
+  <string name="screen_reset_encryption_password_title">"لطفا رمزعبور خود را وارد کنید"</string>
+    <string name="screen_chat_backup_recovery_action_setup_description">"چت‌های شما به طور خودکار با رمزگذاری سرتاسری پشتیبان‌گیری می‌شوند. برای بازیابی این پشتیبان‌گیری و حفظ هویت دیجیتال خود در زمانی که دسترسی به تمام دستگاه‌هایتان را از دست می‌دهید، به کلید بازیابی خود نیاز خواهید داشت."</string>
+    <string name="screen_chat_backup_key_storage_disabled_error">"برای پشتیبان‌گیری از چت‌هایتان، باید گزینه‌ی ذخیره‌سازی کلید (Key Storage) فعال باشد."</string>
 </resources>

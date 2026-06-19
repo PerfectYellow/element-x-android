@@ -38,7 +38,7 @@ dependencyResolutionManagement {
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-rootProject.name = "ElementX"
+rootProject.name = "Messenger"
 include(":app")
 include(":appnav")
 include(":appconfig")

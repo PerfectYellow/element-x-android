@@ -23,7 +23,7 @@
   <string name="screen_invites_invited_you">"%1$s (%2$s) دعوتتان کرد"</string>
   <string name="screen_migration_message">"فرایندی یک باره است. ممنون از شکیباییتان."</string>
   <string name="screen_migration_title">"برپایی حسابتان."</string>
-  <string name="screen_roomlist_a11y_create_message">"ایجاد اتاق یا گفت‌وگویی جدید"</string>
+  <string name="screen_roomlist_a11y_create_message">"ایجاد گروه یا گفت‌وگویی جدید"</string>
   <string name="screen_roomlist_clear_filters">"پاک کردن پالایه‌ها"</string>
   <string name="screen_roomlist_empty_message">"آغاز با پیام دادن به کسی."</string>
   <string name="screen_roomlist_empty_title">"هنوز گپی وجود ندارد."</string>
@@ -38,8 +38,8 @@
   <string name="screen_roomlist_filter_mixed_empty_state_title">"هیچ گپی برای این گزینش ندارید"</string>
   <string name="screen_roomlist_filter_people">"افراد"</string>
   <string name="screen_roomlist_filter_people_empty_state_title">"هنوز هیچ پیام مستقیمی ندارید"</string>
-  <string name="screen_roomlist_filter_rooms">"اتاق‌ها"</string>
-  <string name="screen_roomlist_filter_rooms_empty_state_title">"هنوز در هیچ اتاقی نیستید"</string>
+  <string name="screen_roomlist_filter_rooms">"گروه‌ها"</string>
+  <string name="screen_roomlist_filter_rooms_empty_state_title">"هنوز در هیچ گروهی نیستید"</string>
   <string name="screen_roomlist_filter_unreads">"نخوانده‌ها"</string>
   <string name="screen_roomlist_filter_unreads_empty_state_title">"تبریک!
 هیچ پیام نخوانده‌ای ندارید!"</string>
@@ -47,7 +47,7 @@
   <string name="screen_roomlist_main_space_title">"گپ‌ها"</string>
   <string name="screen_roomlist_mark_as_read">"علامت‌گذاری به عنوان خوانده شده"</string>
   <string name="screen_roomlist_mark_as_unread">"نشان به ناخوانده"</string>
-  <string name="screen_roomlist_tombstoned_room_description">"این اتاق ارتقا یافته"</string>
+  <string name="screen_roomlist_tombstoned_room_description">"این گروه ارتقا یافته"</string>
   <string name="screen_roomlist_your_spaces">"فضاهات"</string>
   <string name="session_verification_banner_message">"گویا از افزاره‌ای جدید استفاده می‌کنید. تأیید با افزاره‌ای دیگر برای دسترسی به پیام‌های رمزنگاری شده‌تان."</string>
   <string name="session_verification_banner_title">"تأیید کنید که خودتانید"</string>
