@@ -117,15 +117,15 @@ fun PreferencesRootView(
             onDeactivateClick = onDeactivateClick,
         )
         // Version
-        Footer(
-            version = state.version,
-            deviceId = state.deviceId,
-            onClick = if (!state.showDeveloperSettings) {
-                { state.eventSink(PreferencesRootEvent.OnVersionInfoClick) }
-            } else {
-                null
-            }
-        )
+//        Footer(
+//            version = state.version,
+//            deviceId = state.deviceId,
+//            onClick = if (!state.showDeveloperSettings) {
+//                { state.eventSink(PreferencesRootEvent.OnVersionInfoClick) }
+//            } else {
+//                null
+//            }
+//        )
     }
 }
 

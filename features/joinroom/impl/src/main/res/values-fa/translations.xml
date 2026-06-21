@@ -14,6 +14,13 @@
   <string name="screen_join_room_invite_required_message">"برای پیوستن به این گروه نیاز به دعوت دارید"</string>
   <string name="screen_join_room_invited_by">"دعوت شده از سوی"</string>
   <string name="screen_join_room_join_action">"پیوستن"</string>
+  <string name="screen_join_room_loading_alert_title">"ما نتوانستیم پیش‌نمایش این اتاق را نمایش دهیم"</string>
+  <string name="screen_join_room_loading_alert_message">"ما نتوانستیم پیش‌نمایش اتاق را نمایش دهیم. این ممکن است به دلیل مشکلات شبکه یا سرور باشد."</string>
+  <string name="screen_join_room_knock_sent_description">"در صورت پذیرش درخواست، دعوتنامه‌ای برای ورود به اتاق دریافت خواهید کرد."</string>
+  <string name="screen_join_room_knock_message_characters_count">"کاراکترهای مجاز %1$d از %2$d"</string>
+  <string name="screen_join_room_fail_reason">"یا باید دعوتنامه داشته باشید یا ممکن است محدودیت‌هایی برای دسترسی وجود داشته باشد."</string>
+  <string name="screen_join_room_decline_and_block_alert_message">"آیا مطمئنید که می‌خواهید دعوت به عضویت در این اتاق را رد کنید؟ این کار همچنین مانع از تماس %1$s با شما یا دعوت شما به اتاق‌ها می‌شود."</string>
+  <string name="screen_join_room_cancel_knock_alert_description">"آیا مطمئن هستید که می خواهید درخواست خود را برای پیوستن به این اتاق لغو کنید؟"</string>
   <string name="screen_join_room_join_restricted_message">"برای پیوستن به فضا باید دعوت شده باشید."</string>
   <string name="screen_join_room_knock_action">"در زدن برای پیوستن"</string>
   <string name="screen_join_room_knock_message_description">"پیام (اختیاری)"</string>

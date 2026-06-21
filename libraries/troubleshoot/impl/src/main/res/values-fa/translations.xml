@@ -7,4 +7,6 @@
   <string name="troubleshoot_notifications_screen_quick_fix_action">"تلاش برای تعمیر"</string>
   <string name="troubleshoot_notifications_screen_success">"همهٔ آزمون‌ها با موفّقیت گذرانده شدند."</string>
   <string name="troubleshoot_notifications_screen_title">"رفع‌اشکال آگاهی‌ها"</string>
+  <string name="troubleshoot_notifications_screen_notice">"تست‌ها را اجرا کنید تا هرگونه مشکلی در پیکربندی خود را که ممکن است باعث شود اعلان‌ها مطابق انتظار رفتار نکنند، شناسایی کنید."</string>
+  <string name="troubleshoot_notifications_screen_waiting">"برخی از آزمایش‌ها نیاز به توجه شما دارند. لطفاً جزئیات را بررسی کنید."</string>
 </resources>

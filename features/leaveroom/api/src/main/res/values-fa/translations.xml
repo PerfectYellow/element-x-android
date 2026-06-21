@@ -6,4 +6,5 @@
   <string name="leave_room_alert_select_new_owner_action">"گزینش مالکان"</string>
   <string name="leave_room_alert_select_new_owner_title">"انتقال مالکیت"</string>
   <string name="leave_room_alert_subtitle">"مطمئنید که می‌خواهید این گروه را ترک کنید؟"</string>
+  <string name="leave_room_alert_select_new_owner_subtitle">"تو تنها مالک این اتاق هستی. قبل از ترک اتاق، باید مالکیت را به شخص دیگری منتقل کنی."</string>
 </resources>

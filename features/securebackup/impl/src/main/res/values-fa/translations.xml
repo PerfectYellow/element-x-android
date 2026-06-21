@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="screen_chat_backup_key_backup_action_disable">"خاموش کردن پشتیبان"</string>
+  <string name="screen_reset_encryption_password_error">"خطای ناشناخته‌ای رخ داده است. لطفاً بررسی کنید که رمز عبور حساب شما صحیح است و دوباره امتحان کنید."</string>
   <string name="screen_chat_backup_key_backup_action_enable">"روشن کردن پشتیبان"</string>
   <string name="screen_chat_backup_key_backup_description">"ذخیرهٔ کلیدهای پیام‌ها و هویت رمزنگاریتان به صورت امن روی کارساز. این کار می‌گذارد تاریخچهٔ پیام‌هایتان را روی هر افزارهٔ جدیدی ببینید. %1$s."</string>
   <string name="screen_chat_backup_key_backup_title">"ذخیره‌ساز کلید"</string>

@@ -20,4 +20,13 @@
   <string name="screen_room_single_knock_request_accept_button_title">"پذیرش"</string>
   <string name="screen_room_single_knock_request_title">"%1$s می‌خواهد به این گروه بپیوندد"</string>
   <string name="screen_room_single_knock_request_view_button_title">"نما"</string>
+  <string name="screen_knock_requests_list_initial_loading_title">"در حال بارگیری درخواست‌های عضویت…"</string>
+  <string name="screen_knock_requests_list_empty_state_title">"درخواست عضویت در حال بررسی نیست"</string>
+  <string name="screen_knock_requests_list_empty_state_description">"وقتی کسی درخواست عضویت در اتاق را می‌دهد، می‌توانید درخواست او را اینجا ببینید."</string>
+  <string name="screen_knock_requests_list_decline_failed_alert_description">"ما نمی‌توانستیم این درخواست را رد کنیم. آیا مایلید دوباره امتحان کنید؟"</string>
+  <string name="screen_knock_requests_list_decline_alert_description">"آیا مطمئنید که می‌خواهید درخواست %1$s برای پیوستن به این اتاق را رد کنید؟"</string>
+  <string name="screen_knock_requests_list_ban_alert_description">"آیا مطمئنید که می‌خواهید %1$s را رد و ممنوع کنید؟ این کاربر نمی‌تواند برای پیوستن دوباره به این اتاق درخواست دسترسی کند."</string>
+  <string name="screen_knock_requests_list_accept_failed_alert_description">"ما نتوانستیم این درخواست را بپذیریم. آیا مایلید دوباره امتحان کنید؟"</string>
+  <string name="screen_knock_requests_list_accept_all_failed_alert_description">"ما نتوانستیم همه درخواست‌ها را بپذیریم. آیا مایلید دوباره امتحان کنید؟"</string>
+  <string name="screen_knock_requests_list_accept_all_alert_description">"آیا مطمئن هستید که می‌خواهید همه درخواست‌های عضویت را بپذیرید؟"</string>
 </resources>

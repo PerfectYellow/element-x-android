@@ -153,7 +153,7 @@
   <string name="action_share_link">"هم‌رسانی پیوند"</string>
   <string name="action_show">"نمایش"</string>
   <string name="action_sign_in_again">"ورود دوباره"</string>
-  <string name="action_signout">"برداشتن این افزاره"</string>
+  <string name="action_signout">"خروج از حساب کاربری"</string>
   <string name="action_signout_anyway">"به هر حال این دستگاه را حذف کنید"</string>
   <string name="action_skip">"پرش"</string>
   <string name="action_start">"آغاز"</string>

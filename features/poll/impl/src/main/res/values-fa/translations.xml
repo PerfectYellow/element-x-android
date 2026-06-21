@@ -16,4 +16,5 @@
   <string name="screen_polls_history_filter_ongoing">"در جریان"</string>
   <string name="screen_polls_history_filter_past">"گذشته"</string>
   <string name="screen_polls_history_title">"نظرسنجی‌ها"</string>
+  <string name="screen_create_poll_delete_option_a11y">"حذف گزینه %1$s"</string>
 </resources>

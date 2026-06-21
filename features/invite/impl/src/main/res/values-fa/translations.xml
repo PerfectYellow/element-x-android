@@ -12,4 +12,7 @@
   <string name="screen_join_room_decline_and_block_alert_confirmation">"بله. رد و انسداد"</string>
   <string name="screen_join_room_decline_and_block_alert_title">"رد دعوت و انسداد"</string>
   <string name="screen_join_room_decline_and_block_button_title">"رد و انسداد"</string>
+  <string name="screen_join_room_decline_and_block_alert_message">"آیا مطمئنید که می‌خواهید دعوت به عضویت در این اتاق را رد کنید؟ این کار همچنین مانع از تماس %1$s با شما یا دعوت شما به اتاق‌ها می‌شود."</string>
+  <string name="screen_decline_and_block_report_user_option_description">"این اتاق را به ارائه دهنده حساب خود گزارش دهید."</string>
+  <string name="screen_decline_and_block_block_user_option_description">"شما هیچ پیام یا دعوتنامه‌ای از این کاربر نخواهید دید."</string>
 </resources>

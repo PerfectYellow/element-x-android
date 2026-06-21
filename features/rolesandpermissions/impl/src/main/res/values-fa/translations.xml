@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <string name="screen_room_change_permissions_administrators">"ادمین"</string>
+  <string name="screen_room_roles_and_permissions_space_details">"جزئیات فضا"</string>
+  <string name="screen_room_roles_and_permissions_reset_confirm_description">"پس از تنظیم مجدد مجوزها، تنظیمات فعلی را از دست خواهید داد."</string>
+  <string name="screen_room_member_list_pending_status">"در حال بررسی"</string>
+  <string name="screen_room_member_list_empty_search_title">"نتیجه‌ای برای «%1$s» یافت نشد"</string>
+  <string name="screen_room_member_list_empty_search_subtitle">"املای کلمات را بررسی کنید یا جستجوی جدیدی را امتحان کنید"</string>
+  <string name="screen_room_change_role_confirm_change_owners_description">"شما نمی توانید این عمل را واگرد کنید. شما در حال انتقال مالکیت به کاربران انتخابی هستید. به محض اینکه این کار را ترک کنید دائمی خواهد بود."</string>
+  <string name="screen_room_change_permissions_title">"مجوزها"</string>
+  <string name="screen_room_change_permissions_manage_space_rooms">"مدیریت اتاق‌ها"</string>
+  <string name="screen_room_change_permissions_manage_space">"مدیریت فضا"</string>
+  <string name="screen_room_change_permissions_live_location">"اشتراک گذاری موقعیت مکانی زنده"</string>
+  <string name="screen_room_change_permissions_change_settings">"تغییر تنظیمات"</string>
   <string name="screen_room_change_permissions_ban_people">"تحریم افراد"</string>
   <string name="screen_room_change_permissions_delete_messages">"حذف پیام‌ها"</string>
   <string name="screen_room_change_permissions_everyone">"عضو"</string>

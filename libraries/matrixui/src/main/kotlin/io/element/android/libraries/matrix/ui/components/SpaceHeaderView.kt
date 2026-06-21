@@ -82,7 +82,7 @@ fun SpaceHeaderView(
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 if (alias != null) {
-                    RoomPreviewAliasAtom(alias = alias.value)
+                    RoomPreviewAliasAtom(alias = alias.value.substringBefore(':'))
                 }
                 SpaceInfoRow(visibility = visibility)
             }

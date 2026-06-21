@@ -94,7 +94,7 @@ fun UserProfileHeaderSection(
         }
         Text(
             modifier = Modifier.niceClickable { onUserIdClick() },
-            text = userId.value,
+            text = userId.extractedDisplayName,
             style = ElementTheme.typography.fontBodyLgRegular,
             color = ElementTheme.colors.textSecondary,
             textAlign = TextAlign.Center,

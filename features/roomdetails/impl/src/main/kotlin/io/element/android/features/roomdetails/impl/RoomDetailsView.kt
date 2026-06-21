@@ -491,7 +491,7 @@ private fun RoomHeaderSection(
         )
         TitleAndSubtitle(
             title = roomName,
-            subtitle = roomAlias?.value,
+            subtitle = roomAlias?.value?.substringBefore(':'),
             onSubtitleClick = onSubtitleClick,
         )
     }
@@ -533,7 +533,7 @@ private fun DmHeaderSection(
         )
         TitleAndSubtitle(
             title = roomName,
-            subtitle = otherMember.userId.value,
+            subtitle = otherMember.userId.extractedDisplayName,
             onSubtitleClick = onSubtitleClick,
         )
     }
@@ -854,7 +854,8 @@ private fun DebugInfoSection(
         val toastMessage = stringResource(CommonStrings.common_copied_to_clipboard)
         ListItem(
             headlineContent = {
-                Text("Internal room ID")
+//                Text("Internal room ID")
+                Text("شناسه داخلی گروه")
             },
             supportingContent = {
                 Text(
@@ -874,7 +875,8 @@ private fun DebugInfoSection(
         )
         ListItem(
             headlineContent = {
-                Text("Room version")
+//                Text("Room version")
+                Text("نسخه گروه")
             },
             supportingContent = {
                 Text(
