@@ -6,8 +6,8 @@
   <string name="screen_deactivate_account_list_item_1_bold_part">"از کار انداختن دایمی"</string>
   <string name="screen_deactivate_account_list_item_2">"برداشتنتان از همهٔ گروه‌های گپ."</string>
   <string name="screen_deactivate_account_list_item_3">"حذف اطّلاعات حسابتان از کارساز هویت."</string>
-  <string name="screen_deactivate_account_title">"غیرفعّال‌سازی حساب"</string>
-  <string name="screen_deactivate_account_description">"غیرفعال کردن حساب کاربری شما, است و شامل موارد زیر میشود:"</string>
+  <string name="screen_deactivate_account_title">"غیرفعال ‌سازی حساب"</string>
+  <string name="screen_deactivate_account_description">"غیرفعال کردن حساب کاربری شما است و شامل موارد زیر میشود:"</string>
   <string name="screen_deactivate_account_list_item_1">"حساب کاربری شما (شما نمی‌توانید دوباره وارد سیستم شوید و شناسه شما قابل استفاده مجدد نیست)."</string>
   <string name="screen_deactivate_account_list_item_4">"پیام‌های شما همچنان برای کاربران ثبت‌نام‌شده قابل مشاهده خواهند بود، اما اگر تصمیم به حذف آنها بگیرید، برای کاربران جدید یا ثبت‌نام‌نشده در دسترس نخواهند بود."</string>
   <string name="screen_deactivate_account_delete_all_messages_notice">"هشدار: کاربران آینده ممکن است مکالمات ناقص را ببینند."</string>

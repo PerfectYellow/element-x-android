@@ -276,14 +276,14 @@ private fun ColumnScope.GeneralSection(
         style = ListItemStyle.Destructive,
         onClick = onSignOutClick,
     )
-    if (state.canDeactivateAccount) {
-        ListItem(
-            headlineContent = { Text(stringResource(id = CommonStrings.action_delete_account)) },
-            leadingContent = ListItemContent.Icon(IconSource.Vector(CompoundIcons.Delete())),
-            style = ListItemStyle.Destructive,
-            onClick = onDeactivateClick,
-        )
-    }
+//    if (state.canDeactivateAccount) {
+//        ListItem(
+//            headlineContent = { Text(stringResource(id = CommonStrings.action_delete_account)) },
+//            leadingContent = ListItemContent.Icon(IconSource.Vector(CompoundIcons.Delete())),
+//            style = ListItemStyle.Destructive,
+//            onClick = onDeactivateClick,
+//        )
+//    }
     // Put developer settings at the end, so nothing bad happens if the user clicks 8 times to enable the entry
     if (state.showDeveloperSettings) {
         DeveloperPreferencesView(onOpenDeveloperSettings)

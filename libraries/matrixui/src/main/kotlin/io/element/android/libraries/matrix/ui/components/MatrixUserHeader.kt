@@ -8,7 +8,10 @@
 
 package io.element.android.libraries.matrix.ui.components
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -19,6 +22,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
@@ -38,44 +44,52 @@ fun MatrixUserHeader(
     matrixUser: MatrixUser,
     modifier: Modifier = Modifier,
 ) {
-    Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 6.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Avatar(
-            modifier = Modifier
-                .padding(vertical = 7.dp),
-            avatarData = matrixUser.getAvatarData(size = AvatarSize.UserPreference),
-            avatarType = AvatarType.User,
+    Box(modifier = modifier.fillMaxWidth()) {
+        Image(
+            painter = painterResource(id = io.element.android.libraries.designsystem.R.drawable.iran_flag),
+            contentDescription = null,
+            modifier = Modifier.matchParentSize(),
+            contentScale = ContentScale.Crop,
+            alpha = 0.3f // Make it subtle so text is readable
         )
-        Spacer(modifier = Modifier.width(13.dp))
-        Column(
+        Row(
             modifier = Modifier
-                .weight(1f)
-                .padding(vertical = 8.dp),
-            verticalArrangement = Arrangement.spacedBy(2.dp)
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp, vertical = 6.dp),
+            verticalAlignment = Alignment.CenterVertically,
         ) {
-            // Name
-            Text(
-                modifier = Modifier.clipToBounds(),
-                text = matrixUser.getBestName(),
-                maxLines = 1,
-                style = ElementTheme.typography.fontHeadingMdRegular,
-                overflow = TextOverflow.Ellipsis,
-                color = ElementTheme.colors.textPrimary,
+            Avatar(
+                modifier = Modifier
+                    .padding(vertical = 7.dp),
+                avatarData = matrixUser.getAvatarData(size = AvatarSize.UserPreference),
+                avatarType = AvatarType.User,
             )
-            // Id
-            if (matrixUser.displayName.isNullOrEmpty().not()) {
+            Spacer(modifier = Modifier.width(13.dp))
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(vertical = 8.dp),
+                verticalArrangement = Arrangement.spacedBy(2.dp)
+            ) {
+                // Name
                 Text(
-//                    text = matrixUser.userId.value.substringBefore(':'),
-                    text = matrixUser.userId.extractedDisplayName,
-                    style = ElementTheme.typography.fontBodyMdRegular,
-                    color = ElementTheme.colors.textSecondary,
+                    modifier = Modifier.clipToBounds(),
+                    text = matrixUser.getBestName(),
                     maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
+                    style = ElementTheme.typography.fontHeadingMdRegular,
+                    overflow = TextOverflow.Ellipsis,
+                    color = ElementTheme.colors.textPrimary,
                 )
+                // Id
+                if (matrixUser.displayName.isNullOrEmpty().not()) {
+                    Text(
+                        text = matrixUser.userId.extractedDisplayName,
+                        style = ElementTheme.typography.fontBodyMdRegular,
+                        color = ElementTheme.colors.textSecondary,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
+                }
             }
         }
     }

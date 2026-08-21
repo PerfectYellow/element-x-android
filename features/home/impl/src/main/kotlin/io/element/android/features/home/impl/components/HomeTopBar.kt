@@ -8,12 +8,17 @@
 
 package io.element.android.features.home.impl.components
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.pager.VerticalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -34,6 +39,8 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
@@ -108,22 +115,36 @@ fun HomeTopBar(
                 scrolledContainerColor = Color.Transparent,
             ),
             title = {
-                val displayTitle = when (selectedNavigationItem) {
-                    HomeNavigationBarItem.Chats -> {
-                        when (spaceFiltersState) {
-                            is SpaceFiltersState.Selected -> spaceFiltersState.selectedFilter.spaceRoom.displayName
-                            else -> stringResource(selectedNavigationItem.labelRes)
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Image(
+                        painter = painterResource(id = io.element.android.libraries.designsystem.R.drawable.iran_army_flag),
+                        contentDescription = null,
+                        modifier = Modifier.size(24.dp),
+                        contentScale = ContentScale.Fit
+                    )
+                    val displayTitle = when (selectedNavigationItem) {
+                        HomeNavigationBarItem.Chats -> {
+                            when (spaceFiltersState) {
+                                is SpaceFiltersState.Selected -> spaceFiltersState.selectedFilter.spaceRoom.displayName
+                                else -> stringResource(selectedNavigationItem.labelRes)
+                            }
                         }
+                        HomeNavigationBarItem.Spaces -> stringResource(selectedNavigationItem.labelRes)
                     }
-                    HomeNavigationBarItem.Spaces -> stringResource(selectedNavigationItem.labelRes)
+                    Text(
+                        modifier = Modifier
+                            .padding(start = 8.dp)
+                            .semantics {
+                                heading()
+                            },
+                        style = ElementTheme.typography.aliasScreenTitle,
+                        text = displayTitle,
+                    )
                 }
-                Text(
-                    modifier = Modifier.semantics {
-                        heading()
-                    },
-                    style = ElementTheme.typography.aliasScreenTitle,
-                    text = displayTitle,
-                )
             },
             navigationIcon = {
                 NavigationIcon(
