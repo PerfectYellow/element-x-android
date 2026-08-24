@@ -121,7 +121,7 @@ fun HomeTopBar(
                     horizontalArrangement = Arrangement.Center
                 ) {
                     Image(
-                        painter = painterResource(id = io.element.android.libraries.designsystem.R.drawable.iran_army_flag),
+                        painter = painterResource(id = io.element.android.libraries.designsystem.R.drawable),
                         contentDescription = null,
                         modifier = Modifier.size(24.dp),
                         contentScale = ContentScale.Fit
